@@ -144,6 +144,16 @@ The application processes JSON datasets with the following structure:
 - **Timeline Display**: User and pattern evidence timelines as interactive tables
 - **Export**: JSON download functionality
 
+### Architecture Diagram
+
+```mermaid
+graph TD
+    A[Data Loader<br/>src/data_loader.py] --> B[Timeline Builder<br/>src/timeline_builder.py]
+    B --> C[LLM Reasoning Layer<br/>src/pattern_reasoner.py]
+    C --> D[JSON Validator<br/>src/schema.py]
+    D --> E[Streamlit Chat UI<br/>app.py]
+```
+
 ## 📝 Chunking and Context Management Strategy
 
 ### Current Approach (Small Dataset Optimized)
